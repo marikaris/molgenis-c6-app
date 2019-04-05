@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faNotesMedical, faFileDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import BootstrapVue from 'bootstrap-vue'
@@ -16,7 +16,7 @@ import 'vue-slider-component/theme/default.css'
 
 Vue.component('VueSlider', VueSlider)
 
-library.add(faCoffee)
+library.add(faSpinner, faNotesMedical, faFileDownload)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

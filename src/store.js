@@ -9,11 +9,15 @@ export default new Vuex.Store({
     phenotypes: [],
     array: [],
     overlap: 0,
-    patients: []
+    patients: [],
+    array_loaded: false,
+    patients_loaded: false,
+    phenotypes_loaded: false
   },
   mutations: {
     setPatients (state, items) {
       state.patients = items
+      state.patients_loaded = true
     },
     setPhenotypes (state, attrs) {
       const phenotypes = attrs.filter((attr) => {
@@ -26,13 +30,16 @@ export default new Vuex.Store({
         return { value: phenotypeAttr.name, text: phenotypeAttr.label }
       })
       state.phenotypes = phenotypes
+      state.phenotypes_loaded = true
     },
     setArrayData (state, items) {
       state.array = items
+      state.array_loaded = true
     }
   },
   getters: {
-    getPhenotypes: (state) => state.phenotypes
+    getPhenotypes: (state) => state.phenotypes,
+    getReadyForBusiness: (state) => state.phenotypes_loaded && state.array_loaded && state.phenotypes_loaded
   },
   actions: {
     getPhenotypeOptions ({ commit }) {
